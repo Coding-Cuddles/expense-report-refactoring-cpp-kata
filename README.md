@@ -15,7 +15,7 @@ different types of expenses and prints a final report.
 
 ### Exercise 1
 
-The `ExpenseReport` class in the `expense_report.py` file generates an expense
+The `ExpenseReport` class in the `expense_report.h` file generates an expense
 report. It iterates over a list of expenses, printing out a line for each
 expense and totaling up the amounts.
 
