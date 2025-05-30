@@ -11,34 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Check formatting
         run: make format-check
 
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Install Ninja, GTest, and GMock
-        run: |
-          sudo apt-get update
-          sudo apt-get install \
-            google-mock \
-            googletest \
-            libgmock-dev \
-            libgtest-dev \
-            ninja-build
+      - uses: actions/checkout@v4
 
       - name: Build
         run: make build
-
-      - name: Run main
-        run: make run
 
       - name: Test
         run: make test
