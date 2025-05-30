@@ -6,6 +6,8 @@
 
 class ReportPrinter {
 public:
+    virtual ~ReportPrinter() = default;
+
     virtual void print(const std::string& text) = 0;
 };
 
@@ -26,7 +28,7 @@ private:
 public:
     void add_expense(const Expense& expense) { expenses.push_back(expense); }
 
-    void print_report(ReportPrinter& printer)
+    void print_report(ReportPrinter& printer) const
     {
         printer.print("Expense Report");
         printer.print("--------------");

@@ -28,7 +28,7 @@ protected:
     std::unique_ptr<MockReportPrinter> printer;
 };
 
-TEST_F(ExpenseReportTest, print_empty)
+TEST_F(ExpenseReportTest, PrintEmpty)
 {
     report->print_report(*printer);
 
@@ -40,7 +40,7 @@ TEST_F(ExpenseReportTest, print_empty)
     EXPECT_EQ(printer->get_text(), expected_output);
 }
 
-TEST_F(ExpenseReportTest, print_one_dinner)
+TEST_F(ExpenseReportTest, PrintOneDinner)
 {
     report->add_expense(Expense(ExpenseType::DINNER, 3000));
     report->print_report(*printer);
@@ -54,7 +54,7 @@ TEST_F(ExpenseReportTest, print_one_dinner)
     EXPECT_EQ(printer->get_text(), expected_output);
 }
 
-TEST_F(ExpenseReportTest, print_two_meals_and_dinner_over)
+TEST_F(ExpenseReportTest, PrintTwoMealsAndDinnerOver)
 {
     report->add_expense(Expense(ExpenseType::DINNER, 6000));
     report->add_expense(Expense(ExpenseType::BREAKFAST, 1000));
@@ -70,7 +70,7 @@ TEST_F(ExpenseReportTest, print_two_meals_and_dinner_over)
     EXPECT_EQ(printer->get_text(), expected_output);
 }
 
-TEST_F(ExpenseReportTest, print_mix_and_dinner_over)
+TEST_F(ExpenseReportTest, PrintMixAndDinnerOver)
 {
     report->add_expense(Expense(ExpenseType::DINNER, 5000));
     report->add_expense(Expense(ExpenseType::BREAKFAST, 2000));

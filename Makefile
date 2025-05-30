@@ -1,19 +1,12 @@
 all: build test
 
-export CXX := clang++
-export GTEST_COLOR := 1
-
 BUILDDIR ?= build
 SRCS := $(shell git ls-files *.cpp *.h)
 
 .PHONY: build
 build:
-	cmake -B ${BUILDDIR} -G Ninja .
+	cmake -B ${BUILDDIR} .
 	cmake --build ${BUILDDIR}
-
-.PHONY: run
-run:
-	cd ${BUILDDIR} && ./main
 
 .PHONY: test
 test:
