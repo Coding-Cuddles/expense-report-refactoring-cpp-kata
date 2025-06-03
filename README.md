@@ -47,36 +47,36 @@ implementing two additional scenarios:
    You may need to add a `date` field to the `Expense` class to support this
    requirement. The date should be the date when the expense occurred.
 
-   > [!NOTE]
-   >
-   > You can use the `std::tm` type in C++ to work with dates, and you
-   > can determine if a date is a weekend by using the following function:
-   >
-   > ```cpp
-   > #include <ctime>
-   > #include <iomanip>
-   > #include <iostream>
-   > #include <string>
-   >
-   > bool is_weekend(const std::string& date_str)
-   > {
-   >     std::tm date{};
-   >     std::istringstream ss(date_str);
-   >     ss >> std::get_time(&date, "%Y-%m-%d");
-   >     std::mktime(&date);
-   >
-   >     int day_of_week = date.tm_wday;
-   >     // Check if it's Saturday (6) or Sunday (0)
-   >     return day_of_week == 6 || day_of_week == 0;
-   > }
-   >
-   > int main()
-   > {
-   >     std::string date_str = "2023-06-17";  // this is a Saturday
-   >     std::cout << is_weekend(date_str) << std::endl;  // this should print: 1
-   >     return 0;
-   > }
-   > ```
+> [!TIP]
+>
+> You can use the `std::tm` type in C++ to work with dates, and you
+> can determine if a date is a weekend by using the following function:
+>
+> ```cpp
+> #include <ctime>
+> #include <iomanip>
+> #include <iostream>
+> #include <string>
+>
+> bool is_weekend(const std::string& date_str)
+> {
+>     std::tm date{};
+>     std::istringstream ss(date_str);
+>     ss >> std::get_time(&date, "%Y-%m-%d");
+>     std::mktime(&date);
+>
+>     int day_of_week = date.tm_wday;
+>     // Check if it's Saturday (6) or Sunday (0)
+>     return day_of_week == 6 || day_of_week == 0;
+> }
+>
+> int main()
+> {
+>     std::string date_str = "2023-06-17";  // this is a Saturday
+>     std::cout << is_weekend(date_str) << std::endl;  // this should print: 1
+>     return 0;
+> }
+> ```
 
 ## Prerequisites
 
