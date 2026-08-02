@@ -17,8 +17,7 @@
             "group": {
                 "kind": "test",
                 "isDefault": true
-            },
-            "dependsOn": "Build"
+            }
         },
         {
             "label": "Format",
