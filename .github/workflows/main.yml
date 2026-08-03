@@ -13,6 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Lint Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v23
+        with:
+          globs: "**/*.md"
+
       - name: Check formatting
         run: make format-check
 
