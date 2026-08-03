@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Check formatting
         run: make format-check
@@ -22,11 +22,11 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
 
-    steps:
-      - uses: actions/checkout@v4
+    env:
+      GTEST_COLOR: "1"
 
-      - name: Build
-        run: make build
+    steps:
+      - uses: actions/checkout@v7
 
       - name: Test
         run: make test
