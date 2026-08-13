@@ -28,13 +28,13 @@ it's not easy to modify or extend its behavior. It's your task to refactor this
 code to make it cleaner and more maintainable, while ensuring that it still
 correctly calculates and prints the report.
 
-Make sure the program still behaves the same way after your refactoring.
-There's a unit test suite in place that checks that on a very rudimentary level
-by just looking at the output of the program.
+Make sure the program still behaves the same way after your refactoring. The
+unit test suite checks this at a rudimentary level by examining only the
+program's output.
 
 ### Exercise 2
 
-When you're done with refactoring, test the quality of your refactoring by
+When you're done refactoring, test the quality of your refactoring by
 implementing two additional scenarios:
 
 1. Extend our system to handle two more types of expenses.
@@ -42,7 +42,7 @@ implementing two additional scenarios:
    1. **Transportation**. Surcharge: 5% of the expense amount.
    2. **Supplies**. Surcharge: No surcharge.
 
-2. Add dynamic surcharge based on day of week.
+2. Add dynamic surcharges based on the day of the week.
 
    - For dinners on weekends, the surcharge is 15% of the expense amount.
    - For breakfasts on weekends, the surcharge is 10% of the expense amount.
@@ -50,7 +50,7 @@ implementing two additional scenarios:
      and 5% for breakfast).
 
    You may need to add a `date` field to the `Expense` class to support this
-   requirement. The date should be the date when the expense occurred.
+   requirement. The field should record when the expense occurred.
 
 > [!TIP]
 >
@@ -61,6 +61,7 @@ implementing two additional scenarios:
 > #include <ctime>
 > #include <iomanip>
 > #include <iostream>
+> #include <sstream>
 > #include <string>
 >
 > bool is_weekend(const std::string& date_str)
